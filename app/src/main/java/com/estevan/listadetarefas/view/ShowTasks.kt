@@ -51,7 +51,7 @@ fun ShowTasks(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-
+                    navController.navigate("SaveTask")
                 },
                 containerColor = Purple40,
                 shape = ShapeDefaults.ExtraLarge
