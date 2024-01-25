@@ -3,10 +3,10 @@ package com.estevan.listadetarefas.view
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -18,7 +18,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -26,7 +25,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.estevan.listadetarefas.components.TextBox
 import com.estevan.listadetarefas.ui.theme.Purple40
-import com.estevan.listadetarefas.ui.theme.Purple80
 import com.estevan.listadetarefas.ui.theme.White
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -54,7 +52,11 @@ fun SaveTask(
         }
     ) {
 
-        var tituloTarefa by remember{
+        var titleTask by remember{
+            mutableStateOf("")
+        }
+
+        var descriptionOfTask by remember {
             mutableStateOf("")
         }
 
@@ -64,10 +66,23 @@ fun SaveTask(
                 .verticalScroll(rememberScrollState())
         ){
             TextBox(
-                value = tituloTarefa,
-                onValueChange = {tituloTarefa = it},
-                modifier = Modifier.fillMaxWidth().padding(20.dp,20.dp,20.dp,0.dp),
+                value = titleTask,
+                onValueChange = {titleTask = it},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp, 20.dp, 20.dp, 0.dp),
                 label = "Task Title",
+                maxLines = 1,
+                keyboardType = KeyboardType.Text
+            )
+
+            TextBox(
+                value = descriptionOfTask,
+                onValueChange = {descriptionOfTask = it},
+                modifier = Modifier
+                    .fillMaxWidth().height(160.dp)
+                    .padding(20.dp, 10.dp, 20.dp, 0.dp),
+                label = "Description",
                 maxLines = 1,
                 keyboardType = KeyboardType.Text
             )
