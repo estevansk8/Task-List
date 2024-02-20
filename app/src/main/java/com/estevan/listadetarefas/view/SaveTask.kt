@@ -1,6 +1,7 @@
 package com.estevan.listadetarefas.view
 
 import android.annotation.SuppressLint
+import android.widget.Button
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonColors
@@ -29,6 +31,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.estevan.listadetarefas.components.CustomButton
 import com.estevan.listadetarefas.components.TextBox
 import com.estevan.listadetarefas.ui.theme.HardPriorityDisabled
 import com.estevan.listadetarefas.ui.theme.HardPrioritySelected
@@ -98,7 +101,7 @@ fun SaveTask(
                 onValueChange = {titleTask = it},
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(20.dp, 20.dp, 20.dp, 0.dp),
+                    .padding(20.dp, 70.dp, 20.dp, 0.dp),
                 label = "Task Title",
                 maxLines = 1,
                 keyboardType = KeyboardType.Text
@@ -149,9 +152,13 @@ fun SaveTask(
                         selectedColor = HardPrioritySelected
                     )
                 )
-
-
             }
+            
+            CustomButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.fillMaxWidth().height(130.dp).padding(20.dp),
+                text = "Save"
+            )
         }
     }
 }

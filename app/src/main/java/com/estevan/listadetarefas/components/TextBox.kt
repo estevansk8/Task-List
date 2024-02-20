@@ -14,6 +14,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.estevan.listadetarefas.ui.theme.Purple40
+import com.estevan.listadetarefas.ui.theme.PurpleGrey40
+import com.estevan.listadetarefas.ui.theme.PurpleGrey80
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,10 +39,10 @@ fun TextBox(
         textStyle = TextStyle(color = Color.Black),
         colors = TextFieldDefaults.colors(
             cursorColor = Color.Blue,
-            focusedLabelColor = Color.Blue,
-            unfocusedLabelColor = Color.Blue,
-            unfocusedContainerColor = Color.Red,
-            focusedContainerColor = Color.White
+            focusedLabelColor = Color.White,
+            unfocusedLabelColor = Color.White,
+            unfocusedContainerColor = PurpleGrey40,
+            focusedContainerColor = PurpleGrey80
         ),
         shape = RoundedCornerShape(20.dp),
         keyboardOptions = KeyboardOptions(
