@@ -2,6 +2,8 @@ package com.estevan.listadetarefas.view
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
@@ -20,6 +22,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.estevan.listadetarefas.R
+import com.estevan.listadetarefas.model.Task
+import com.estevan.listadetarefas.taskItem.TaskItem
 import com.estevan.listadetarefas.ui.theme.Black
 import com.estevan.listadetarefas.ui.theme.Purple40
 import com.estevan.listadetarefas.ui.theme.Purple80
@@ -61,8 +65,43 @@ fun ShowTasks(
                     contentDescription = "icon to save task")
             }
         }
-
     ) {
+        paddingValues ->
 
+        val taskListItens: MutableList<Task> = mutableListOf(
+            Task(
+                name = "Study Composable",
+                description = "Make the task list tutorial",
+                priority = 0
+            ),
+            Task(
+                name = "Study Composable",
+                description = "Make the task list tutorial",
+                priority = 1
+            ),
+            Task(
+                name = "Study Composable",
+                description = "Make the task list tutorial",
+                priority = 2
+            ),
+            Task(
+                name = "Study Composable",
+                description = "Make the task list tutorial",
+                priority = 2
+            ),
+            Task(
+                name = "Study Composable",
+                description = "Make the task list tutorial",
+                priority = 3
+            )
+        )
+
+        LazyColumn(
+            contentPadding = paddingValues
+        ) {
+            itemsIndexed(taskListItens){ position, _ ->
+                TaskItem()
+            }
+        }
     }
 }
