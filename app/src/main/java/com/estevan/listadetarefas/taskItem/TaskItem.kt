@@ -22,9 +22,47 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.estevan.listadetarefas.R
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.estevan.listadetarefas.model.Task
 
 @Composable
-fun TaskItem(){
+fun TaskItem(
+    position: Int,
+    taskList: MutableList<Task>
+){
+
+    val taskTitle = taskList[position].name
+    val taskDescription = taskList[position].description
+    val taskPriority = taskList[position].priority
+
+    var priorityLevel: String = when(taskPriority){
+        0 -> {
+            "Without priority"
+        }
+        1 -> {
+            "Low priority"
+        }
+        2 -> {
+            "Medium priority"
+        }
+        else -> {
+            "High priority"
+        }
+    }
+
+    val color = when(taskPriority){
+        0 -> {
+            Color.Black
+        }
+        1 -> {
+            Color.Green
+        }
+        2 -> {
+            Color.Yellow
+        }
+        else -> {
+            Color.Red
+        }
+    }
 
     Card(
         colors = CardDefaults.cardColors(Color.White),
@@ -40,7 +78,7 @@ fun TaskItem(){
             val(txtTitle, txtDescription, cardPriority, txtPriority, btnDelete) = createRefs()
 
             Text(
-                text = "Task 1",
+                text = taskTitle.toString(),
                 modifier = Modifier.constrainAs(txtTitle){
                     top.linkTo(parent.top, margin = 10.dp)
                     start.linkTo(parent.start, margin = 10.dp)
@@ -48,7 +86,7 @@ fun TaskItem(){
             )
 
             Text(
-                text = "Description",
+                text = taskDescription.toString(),
                 modifier = Modifier.constrainAs(txtDescription){
                     top.linkTo(txtTitle.bottom, margin = 10.dp)
                     start.linkTo(parent.start, margin = 10.dp)
@@ -56,7 +94,7 @@ fun TaskItem(){
             )
 
             Text(
-                text = "Priority Level",
+                text = taskPriority.toString(),
                 modifier = Modifier.constrainAs(txtPriority){
                     top.linkTo(txtDescription.bottom, margin = 10.dp)
                     start.linkTo(parent.start, margin = 10.dp)
@@ -65,7 +103,7 @@ fun TaskItem(){
             )
 
             Card(
-                colors = CardDefaults.cardColors(Color.Green),
+                colors = CardDefaults.cardColors(color),
                 modifier = Modifier
                     .size(30.dp)
                     .constrainAs(cardPriority) {
@@ -93,7 +131,8 @@ fun TaskItem(){
 
 }
 
+/*
 @Composable
 private fun TaskItemPreview(){
     TaskItem()
-}
+}*/

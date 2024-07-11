@@ -100,7 +100,7 @@ fun ShowTasks(
             contentPadding = paddingValues
         ) {
             itemsIndexed(taskListItens){ position, _ ->
-                TaskItem()
+                TaskItem(position, taskListItens)
             }
         }
     }
