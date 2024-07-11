@@ -94,7 +94,7 @@ fun TaskItem(
             )
 
             Text(
-                text = taskPriority.toString(),
+                text = priorityLevel.toString(),
                 modifier = Modifier.constrainAs(txtPriority){
                     top.linkTo(txtDescription.bottom, margin = 10.dp)
                     start.linkTo(parent.start, margin = 10.dp)
