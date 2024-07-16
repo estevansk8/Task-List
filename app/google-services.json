@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "720881287541",
+    "project_id": "task-list-b6083",
+    "storage_bucket": "task-list-b6083.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720881287541:android:74815f89bbcf388b35533c",
+        "android_client_info": {
+          "package_name": "com.estevan.listadetarefas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkIXdjuUkejshJlVrSvCW072cNY2mrwVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
