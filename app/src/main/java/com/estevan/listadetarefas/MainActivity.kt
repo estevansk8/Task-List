@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.estevan.listadetarefas.ui.theme.ListaDeTarefasTheme
 import com.estevan.listadetarefas.view.SaveTask
 import com.estevan.listadetarefas.view.ShowTasks
+import com.google.firebase.Firebase
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,8 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        Firebase
     }
 }
 
